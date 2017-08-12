@@ -3,8 +3,6 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var cors = require('cors')
 
-var greetings = require('./routes/greeting')
-
 var server = express()
 
 server.use(cors('*'))
@@ -12,9 +10,10 @@ server.use(cors('*'))
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
-server.use('/api/greetings', greetings)
+server.use('/api/flats', require('./routes/flats'))
+server.use('/api/flatties', require('./routes/flatties'))
+server.use('/api/shoppinglist', require('./routes/shoppinglist'))
+server.use('/api/events', require('./routes/events'))
+server.use('/api/noticeboard', require('./routes/noticeboard'))
 
-module.exports = function(db) {
-  server.set('db', db)
-  return server
-}
+module.exports = server
