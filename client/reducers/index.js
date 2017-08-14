@@ -1,7 +1,9 @@
 import {combineReducers} from 'redux'
 
-import greetings from './greetings' 
+import flats from './flats'
+import flatties from './flatties'
 
 export default combineReducers({
-  greetings
+  flats,
+  flatties
 })
