@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 
 const renderFlatties = (flattie, key) => {
-  return <li>{flattie.name}</li>
+  return <li key={key}>{flattie.name}</li>
 }
 
 const Flatties = ({flatties, dispatch}) => {
