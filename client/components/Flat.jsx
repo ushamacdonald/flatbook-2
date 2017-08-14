@@ -26,9 +26,10 @@ class Flat extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="columns">
         <h1>{this.state.flat_id}</h1>
         <Route path='/flats/:flat_id' component={(props) => <Flatties {...props} />} />
+        <div className="column">blahs</div>
       </div>
     )
   }

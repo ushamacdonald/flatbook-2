@@ -8,7 +8,7 @@ const renderFlatties = (flattie, key) => {
 
 const Flatties = ({flatties, dispatch}) => {
   return (
-    <div>
+    <div className="column">
       <ul>
         {flatties.map(renderFlatties)}
       </ul>
