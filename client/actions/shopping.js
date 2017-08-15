@@ -12,7 +12,6 @@ export function getShopping (flat_id) {
     request
       .get('api/shoppinglist/' + flat_id)
       .end((err, res) => {
-        console.log(res.body);
         if (err) console.log(err.message)
         dispatch(receiveShopping(res.body))
       })

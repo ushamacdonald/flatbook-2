@@ -3,10 +3,12 @@ import {HashRouter as Router, Route} from 'react-router-dom'
 
 import {getFlatties} from '../actions/flatties'
 import {getShopping} from '../actions/shopping'
+import {getNoticeboard} from '../actions/noticeboard'
 import {connect} from 'react-redux'
 
 import Flatties from './Flatties'
 import ShoppingList from './ShoppingList'
+import NoticeBoard from './NoticeBoard'
 
 
 class Flat extends React.Component {
@@ -26,6 +28,7 @@ class Flat extends React.Component {
   componentWillMount() {
     this.props.dispatch(getFlatties(this.props.match.params.flat_id))
     this.props.dispatch(getShopping(this.props.match.params.flat_id))
+    this.props.dispatch(getNoticeboard(this.props.match.params.flat_id))
   }
 
   render() {
@@ -36,8 +39,9 @@ class Flat extends React.Component {
             <Route path='/flats/:flat_id' component={(props) => <Flatties {...props} />} />
             <div className="column"></div>
           </div>
-          <div className="columns shopping">
+          <div className="columns">
           <Route exact path="/flats/:flat_id" component={(props) => <ShoppingList {...props} />} />
+          <Route exact path="/flats/:flat_id" component={(props) => <NoticeBoard {...props} />} />
           </div>
       </div>
 
