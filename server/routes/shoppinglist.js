@@ -7,4 +7,11 @@ router.get('/:flat_id', (req, res) => {
     .catch(err => res.status(500).send(err.message + 'SERVER ERROR'))
 })
 
+router.post('/', (req, res) => {
+  req.body.flattie_id = 1
+  shoppinglistDb.addShoppinglistItem(req.app.get('db'), req.body)
+    .then(shoppinglist => res.json(shoppinglist))
+    .catch(err => res.status(500).send(err.message + 'SERVER ERROR'))
+})
+
 module.exports = router

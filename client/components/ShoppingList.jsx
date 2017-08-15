@@ -1,5 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import ShoppingListAdd from './ShoppingListAdd'
+import {HashRouter as Router, Route} from 'react-router-dom'
+
 
 const ShoppingList = ({shopping}) => {
     return (
@@ -8,6 +11,7 @@ const ShoppingList = ({shopping}) => {
         {shopping.map((shopping, key) => {
           return <li key={key}>{shopping.item}</li>
         })}
+        <Route exact path="/flats/:flat_id" component={(props) => <ShoppingListAdd {...props} />} />
       </div>
     )
 }

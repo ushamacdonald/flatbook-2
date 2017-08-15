@@ -3,10 +3,14 @@ function getShoppinglistByFLatId (flat_id, db) {
     .where('flat_id', flat_id)
 }
 
-function addShoppinglistItem (data, db) {
+function addShoppinglistItem (db, data) {
   return db('shoppinglist')
     .insert(data)
-}
+    .then((id) => {
+      return db('shoppinglist')
+        .where('shopping_id', id[0]).first()
+    })
+  }
 
 module.exports = {
   getShoppinglistByFLatId,

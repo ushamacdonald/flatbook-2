@@ -1,10 +1,10 @@
 import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import {getFlatties} from '../actions/flatties'
 import {getShopping} from '../actions/shopping'
 import {getNoticeboard} from '../actions/noticeboard'
-import {connect} from 'react-redux'
 
 import Flatties from './Flatties'
 import ShoppingList from './ShoppingList'

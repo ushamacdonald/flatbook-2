@@ -16,7 +16,6 @@ class App extends React.Component  {
     return(
       <Router>
         <div className='app-container'>
-          <h1>Flat Book</h1>
           <Route exact path="/" component={Flats} />
           <Route exact path="/flats/:flat_id" component={(props) => <Flat {...props} />} />
         </div>
