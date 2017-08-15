@@ -2,9 +2,12 @@ import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
 
 import {getFlatties} from '../actions/flatties'
+import {getShopping} from '../actions/shopping'
 import {connect} from 'react-redux'
 
 import Flatties from './Flatties'
+import ShoppingList from './ShoppingList'
+
 
 class Flat extends React.Component {
   constructor(props) {
@@ -22,15 +25,22 @@ class Flat extends React.Component {
   }
   componentWillMount() {
     this.props.dispatch(getFlatties(this.props.match.params.flat_id))
+    this.props.dispatch(getShopping(this.props.match.params.flat_id))
   }
 
   render() {
     return (
-      <div className="columns">
-        <h1>{this.state.flat_id}</h1>
-        <Route path='/flats/:flat_id' component={(props) => <Flatties {...props} />} />
-        <div className="column">blahs</div>
+      <div>
+          <div className="columns">
+            <div className="column"></div>
+            <Route path='/flats/:flat_id' component={(props) => <Flatties {...props} />} />
+            <div className="column"></div>
+          </div>
+          <div className="columns shopping">
+          <Route exact path="/flats/:flat_id" component={(props) => <ShoppingList {...props} />} />
+          </div>
       </div>
+
     )
   }
 }

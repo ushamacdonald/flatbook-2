@@ -1,0 +1,47 @@
+.flattie {
+  float:left;
+  margin: 5px;
+  text-align: center;
+}
+
+.flattiesContainer {
+  margin-top: 20px;
+}
+
+.my_message {
+  margin: 10px;
+}
+
+input[type=checkbox]:checked + label.strikethrough{
+  text-decoration: line-through;
+}
+.shopping_list {
+  list-style-type: none;
+}
+
+
+
+.flattie_pic {
+  height:140px;
+}
+
+.shoppingContainer {
+  margin-bottom: 10px;
+}
+
+.flattie_title {
+  margin-bottom :5px!important;
+}
+
+.cal_container {
+  height:400px!important;
+}
+
+.cal_header {
+  text-align: center;
+}
+
+.todaysEvents {
+  margin-bottom: 10px;
+
+}

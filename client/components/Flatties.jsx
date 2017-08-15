@@ -3,15 +3,13 @@ import {connect} from 'react-redux'
 
 
 const renderFlatties = (flattie, key) => {
-  return <li key={key}>{flattie.name}</li>
+  return <div className="column" key={key}><h1 className="title is-3">{flattie.name}</h1> <p>{flattie.description}</p> <img src={flattie.image} /></div>
 }
 
 const Flatties = ({flatties, dispatch}) => {
   return (
-    <div className="column">
-      <ul>
-        {flatties.map(renderFlatties)}
-      </ul>
+    <div className="column is-7 box">
+        <div className="columns">{flatties.map(renderFlatties)}</div>
     </div>
   )
 }
