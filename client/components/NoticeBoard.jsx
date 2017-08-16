@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import NoticeBoardAdd from './NoticeBoardAdd'
 import {HashRouter as Router, Route} from 'react-router-dom'
+import NoticeBoardAdd from './NoticeBoardAdd'
 
 
 const NoticeBoard = ({noticeboard}) => {
