@@ -32,7 +32,6 @@ export function postNoticeboard (noticeboard) {
       .send(noticeboard)
       .end((err, res) => {
         if (err) console.log(err.message)
-        console.log(res.body);
         dispatch(addNoticeboard(res.body))
   })
   }

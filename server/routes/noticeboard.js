@@ -8,10 +8,10 @@ router.get('/:flat_id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  req.body.notice_id = 1
+  req.body.flattie_id = 1
   noticeboardDb.addNoticeboardMessage(req.app.get('db'), req.body)
     .then(noticeboard => res.json(noticeboard))
-    .catch(err => res.status(500).send(err.message + 'SERVER ERROR'))
+    .catch(err => console.log(err))
 })
 
 module.exports = router
