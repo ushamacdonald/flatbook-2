@@ -1,22 +1,32 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
+import {postNoticeboard} from '../actions/noticeboard'
 
 class NoticeBoardAdd extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      newMessage: {flat_id: props.match.params.flat_id}
     }
   }
 
+updateMessage(e) {
+  let newMessage = this.state.newMessage
+  newMessage[e.target.name] = e.target.value
+  this.setState({newMessage})
+}
+
+addMessage(e) {
+  e.preventDefault()
+  this.props.dispatch(postNoticeboard(this.state.newMessage))
+}
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.addMessage.bind(this)}>
         <div className="field">
           <div className="control">
-            <input className="input" type="text" name="message" />
+            <input onChange={this.updateMessage.bind(this)} className="input" type="text" name="message" />
           </div>
         </div>
         <div className="field">
@@ -30,7 +40,9 @@ class NoticeBoardAdd extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  noticeboard: state.noticeboard
+  return {
+    noticeboard: state.noticeboard
+  }
 }
 
 export default connect(mapStateToProps)(NoticeBoardAdd)

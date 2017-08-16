@@ -17,3 +17,23 @@ export function getNoticeboard (flat_id) {
   })
 }
 }
+
+export const addNoticeboard = (noticeboard) => {
+  return {
+    type: 'ADD_NOTICEBOARD',
+    noticeboard
+  }
+}
+
+export function postNoticeboard (noticeboard) {
+  return (dispatch) => {
+    request
+      .post('api/noticeboard/')
+      .send(noticeboard)
+      .end((err, res) => {
+        if (err) console.log(err.message)
+        console.log(res.body);
+        dispatch(addNoticeboard(res.body))
+  })
+  }
+}

@@ -1,5 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import NoticeBoardAdd from './NoticeBoardAdd'
+import {HashRouter as Router, Route} from 'react-router-dom'
+
 
 const NoticeBoard = ({noticeboard}) => {
   return (
@@ -10,6 +13,7 @@ const NoticeBoard = ({noticeboard}) => {
           {noticeboard.message}
         </div>
       })}
+      <Route exact path="/flats/:flat_id" component={(props) => <NoticeBoardAdd {...props} />} />
     </div>
   )
 }
