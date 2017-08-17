@@ -2,11 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {postShopping} from '../actions/shopping'
 
-class ShoppingListAdd extends React.Component {
+export default class ShoppingListAdd extends React.Component {
   constructor(props) {
     super(props)
       this.state = {
-        newItem: {flat_id: props.match.params.flat_id}
+        newItem: {flat_id: props.match.params.flat_id, item: ''}
       }
   }
 
@@ -40,9 +40,8 @@ class ShoppingListAdd extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
+  if (props.shoppinglist) return ({shopping: props.shoppinglist})
   return {
     shopping: state.shoppinglist
 }}
-
-export default connect(mapStateToProps)(ShoppingListAdd)

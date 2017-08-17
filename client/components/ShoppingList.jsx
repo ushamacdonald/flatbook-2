@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import ShoppingListAdd from './ShoppingListAdd'
+import ShoppingListAdd from '../containers/ShoppingListAdd'
 import {HashRouter as Router, Route} from 'react-router-dom'
 
 

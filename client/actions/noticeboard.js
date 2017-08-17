@@ -10,7 +10,7 @@ export const receiveNoticeboard = (noticeboard) => {
 export function getNoticeboard (flat_id) {
   return (dispatch) => {
     request
-      .get('api/noticeboard/' + flat_id)
+      .get('/api/noticeboard/' + flat_id)
       .end((err, res) => {
         if (err) console.log(err.message)
         dispatch(receiveNoticeboard(res.body))
@@ -28,7 +28,7 @@ export const addNoticeboard = (noticeboard) => {
 export function postNoticeboard (noticeboard) {
   return (dispatch) => {
     request
-      .post('api/noticeboard/')
+      .post('/api/noticeboard/')
       .send(noticeboard)
       .end((err, res) => {
         if (err) console.log(err.message)
