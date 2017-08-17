@@ -15,5 +15,6 @@ server.use('/api/flatties', require('./routes/flatties'))
 server.use('/api/shoppinglist', require('./routes/shoppinglist'))
 server.use('/api/events', require('./routes/events'))
 server.use('/api/noticeboard', require('./routes/noticeboard'))
+server.use('/api/movies', require('./routes/movie'))
 
 module.exports = server

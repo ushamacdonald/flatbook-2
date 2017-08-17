@@ -10,3 +10,4 @@ function noticeboard (state = [], action) {
 }
 
 export default noticeboard
+ 
