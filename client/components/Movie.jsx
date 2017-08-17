@@ -1,6 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchMovie} from '../actions/movie'
+import {HashRouter as Route, Router} from 'react-router-dom'
+import MovieResults from './MovieResults'
+
 
 class Movie extends React.Component {
 
@@ -17,7 +20,9 @@ saveResults(search, movieResults) {
 }
 
 newSearch(e) {
+  e.preventDefault()
   fetchMovie(e.target.value, this.saveResults.bind(this))
+
 }
 
 render() {
@@ -25,6 +30,7 @@ render() {
   return (
     <div>
       <h1 className="title is-3">Movie</h1>
+      <Route exact path="/flats/:flat_id" component={(props) => <MovieResults {...props} />} />
       <form>
         <div className="field">
           <div className="control">
@@ -37,6 +43,13 @@ render() {
           </div>
         </div>
       </form>
+      <div className="columns">
+        {this.state.movieResults.map((result, key) => {
+          return <div key={key} className="column">
+            {result.original_title}
+          </div>
+        })}
+      </div>
     </div>
   )
 }

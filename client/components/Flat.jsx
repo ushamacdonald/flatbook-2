@@ -10,6 +10,9 @@ import Flatties from './Flatties'
 import ShoppingList from './ShoppingList'
 import NoticeBoard from './NoticeBoard'
 import Movie from './Movie'
+import MovieResults from './MovieResults'
+
+
 
 
 class Flat extends React.Component {
@@ -45,6 +48,8 @@ class Flat extends React.Component {
           <Route exact path="/flats/:flat_id" component={(props) => <NoticeBoard {...props} />} />
           </div>
           <Route exact path="/flats/:flat_id" component={(props) => <Movie {...props} />} />
+          <Route exact path="/flats/:flat_id" component={(props) => <MovieResults {...props} />} />
+
       </div>
 
     )
