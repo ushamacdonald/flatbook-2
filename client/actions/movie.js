@@ -1,29 +1,20 @@
 import request from 'superagent'
 
-export const requestMovies = () => {
-  return {
-    type: REQUEST_MOVIES
-  }
-}
-
-export const receiveMovies = (movies) => {
+export const receiveMovie = (movie) => {
 return {
   type: RECEIVE_MOVIES,
-  movies: movies.map(movie => movie.data)
+  movies: movie.map(movie => movie.data)
 }
 }
 
-export function fetchMovie () {
-  return (dispatch) => {
+export function fetchMovie (search, cb) {
     request
-      .get('https://simapi.p.mashape.com/m.php?')
-      .set('X-Mashape-Key', '983OTIHON3mshsug4dfkMcunJMlkp1z6vAijsnRLGJotACG62p')
-      .set('Accept', 'text/plain')
+      .get('api/movies/')
+      .query({movie: search})
       .end((err, res) => {
         if (err) {console.log(err.message)}
         else {
-          dispatch(receiveMovies(res.body))
+          cb(search, res.body)
         }
       })
-  }
 }
