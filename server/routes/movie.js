@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     .query({
       // with_genres: 18,
       query: req.query.movie || 'bee movie',
-      api_key: 'd525f9f9d33e5e0eb93d55918d54b51e',
+      api_key: 'nope',
       language: "en-US"
     })
     .end((err, response) => {
