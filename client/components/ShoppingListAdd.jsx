@@ -39,9 +39,3 @@ export default class ShoppingListAdd extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (state, props) => {
-  if (props.shoppinglist) return ({shopping: props.shoppinglist})
-  return {
-    shopping: state.shoppinglist
-}}
