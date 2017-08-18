@@ -1,3 +1,7 @@
+.column {
+  height: 100%
+}
+
 .flattie {
   float:left;
   margin: 5px;
@@ -18,8 +22,6 @@ input[type=checkbox]:checked + label.strikethrough{
 .shopping_list {
   list-style-type: none;
 }
-
-
 
 .flattie_pic {
   height:140px;
@@ -44,4 +46,8 @@ input[type=checkbox]:checked + label.strikethrough{
 .todaysEvents {
   margin-bottom: 10px;
 
+}
+
+.movieSearch {
+  margin-bottom: 30px;
 }

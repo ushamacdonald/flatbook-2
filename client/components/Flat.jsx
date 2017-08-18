@@ -48,7 +48,7 @@ class Flat extends React.Component {
           <Route exact path="/flats/:flat_id" component={(props) => <NoticeBoard {...props} />} />
           </div>
           <Route exact path="/flats/:flat_id" component={(props) => <Movie {...props} />} />
-          <Route exact path="/flats/:flat_id" component={(props) => <MovieResults {...props} />} />
+
 
       </div>
 
