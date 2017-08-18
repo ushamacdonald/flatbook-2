@@ -11,8 +11,9 @@ class Movie extends React.Component {
 constructor(props) {
   super(props)
   this.state = {
-    search: 'Bee Movie',
+    search: '',
     movieResults: [],
+    selectedResult: null,
     timeoutJump: false,
   }
 }
@@ -35,7 +36,12 @@ newSearch(e) {
   else fetchMovie(e.target.value, this.saveResults.bind(this))
 }
 
+selectResult(selectedResult) {
+  this.setState({selectedResult})
+}
+
 render() {
+  console.log(this.state.movieResults);
   return (
     <div className="container">
       <h1 className="title is-3">Movie</h1>
@@ -44,7 +50,8 @@ render() {
             <input onChange={this.newSearch.bind(this)} className="input" type="text" name="search" />
           </div>
         </div>
-      <MovieResults movieResults={this.state.movieResults} />
+      <MovieResults select={this.selectResult.bind(this)} movieResults={this.state.movieResults} />
+      {this.state.selectedResult && <div>{this.state.selectedResult.original_title}</div>}
     </div>
   )
 }

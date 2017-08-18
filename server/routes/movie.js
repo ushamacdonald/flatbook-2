@@ -21,4 +21,5 @@ router.get('/', (req, res) => {
 
 //image base http://image.tmdb.org/t/p/w185/ + movie.poster_path
 
+
 module.exports = router
