@@ -2,8 +2,10 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchMovie} from '../actions/movie'
 import {HashRouter as Route, Router} from 'react-router-dom'
-import MovieResults from './MovieResults'
 import jump from 'jump.js'
+
+import MovieResults from './MovieResults'
+import MovieSingleResult from './MovieSingleResult'
 
 
 class Movie extends React.Component {
@@ -51,7 +53,8 @@ render() {
           </div>
         </div>
       <MovieResults select={this.selectResult.bind(this)} movieResults={this.state.movieResults} />
-      {this.state.selectedResult && <div>{this.state.selectedResult.original_title}</div>}
+      {this.state.selectedResult &&
+      <MovieSingleResult select={this.state.selectedResult} movieResults={this.state.movieResults} /> }
     </div>
   )
 }
